@@ -1,0 +1,78 @@
+.section {
+  .title {
+    text-align: left;
+  }
+}
+
+// custom input position icon style
+
+#firstName{
+  padding-left: 10%;
+  @media  (max-width: 600px) {
+    padding-left: 12%;
+  }
+  @media  (max-width: 320px) {
+    padding-left: 14%;
+  }
+}
+
+#lastName{
+  padding-left: 10%;
+  @media  (max-width: 600px) {
+    padding-left: 12%;
+  }
+  @media  (max-width: 320px) {
+    padding-left: 14%;
+  }
+}
+
+#companyName{
+  padding-left: 10%;
+  @media  (max-width: 600px) {
+    padding-left: 12%;
+  }
+  @media  (max-width: 320px) {
+    padding-left: 14%;
+  }
+}
+
+#emailAddress{
+  padding-left: 10%;
+  @media  (max-width: 600px) {
+    padding-left: 12%;
+  }
+  @media  (max-width: 320px) {
+    padding-left: 14%;
+  }
+}
+
+#mobileNumber{
+  padding-left: 10%;
+  @media  (max-width: 600px) {
+    padding-left: 12%;
+  }
+  @media  (max-width: 320px) {
+    padding-left: 14%;
+  }
+}
+
+#mobileNumber::placeholder{
+ color: red;
+}
+
+.input-block{
+  position: relative;
+}
+
+.icon-input-image{
+  width: 24px !important;
+  position: absolute;
+  left: 10px; 
+  top: 55%; 
+  transform: translateY(-50%);
+}
+
+.icon-input-image-two{
+  top: 35px !important;
+}
+

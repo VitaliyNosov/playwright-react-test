@@ -1,0 +1,28 @@
+@media screen and (max-width: 480px) {
+  .form-field-desc.step3 {
+    p {
+      word-break: break-all;
+    }
+  }
+}
+
+
+.input-block input{
+  width: 90%;
+  padding-left: 10%;
+  @media screen and (max-width: 2560px) {
+    width: 88%;
+  }
+  @media screen and (max-width: 1280px) {
+    width: 88%;
+  }
+  @media screen and (max-width: 600px) {
+    padding-left: 12%;
+    width: 86%;
+  }
+  @media screen and (max-width: 376px) {
+    padding-left: 16%;
+    width: 82%;
+  }
+}
+
