@@ -26,7 +26,7 @@ test('test-front-page-two', async ({ page }) => {
   await page.goto('https://v2.marketlend.com.au/');
 
   const locatorTwo = page.locator('.button-front-page-custom-one');
-  await locatorTwo.screenshot({ path: 'img/image-button.png' });
+  await locatorTwo.screenshot({ path: 'screen/image-button.png' });
   await page.getByRole('link', { name: 'Investor' }).click();
   await page.getByRole('link', { name: 'Borrower' }).click();
   await page.getByLabel('Primary').getByRole('link', { name: 'Contact Us' }).click();
@@ -43,7 +43,7 @@ test('test-contact-page', async ({ page }) => {
 
   await page.goto('https://v2.marketlend.com.au/contact-us/');
 
-  await page.screenshot({path: 'img/screnshot-contact-page.jpg' });
+  await page.screenshot({path: 'screen/screnshot-contact-page.jpg' });
   await page.getByRole('link', { name: '+610280066798' }).click();
   await page.getByRole('link', { name: 'Call Us Now' }).click();
   await page.getByPlaceholder('First Name').fill('Vitaliy');
