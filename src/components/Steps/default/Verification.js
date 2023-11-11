@@ -238,7 +238,7 @@ const Verification = ({ handleGotoNext, validateMaskInput, renderLabel }) => {
           <div className="form-field">
             {renderLabel({ label: 'Enter validation code' })}
 
-            <div className='input-block'>
+            <div className='input-block class-input-test'>
 
             {/* custom icon  */}
 

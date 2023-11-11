@@ -32,15 +32,26 @@ module.exports = defineConfig({
     baseURL: "https://v2.marketlend.com.au/",
         headless: true,
         screenshot: "on",
-        video: "on"
+        video: "on",
+        // contextOptions: {
+        //   viewport: { width: 1920, height: 1080 },
+        // }
+        
   },
-
+  timeout: 60 * 1000 * 5,
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1540, height: 1080 },
+      },
     },
+    // {
+    //   name: 'chromium',
+    //   use: { ...devices['Desktop Chrome'] },
+    // },
 
     // {
     //   name: 'firefox',
@@ -65,7 +76,9 @@ module.exports = defineConfig({
     /* Test against branded browsers. */
     // {
     //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
+    //   use: { ...devices['Desktop Edge'], 
+    //   viewport: { width: 1540, height: 780 },
+    //   channel: 'msedge' },
     // },
     // {
     //   name: 'Google Chrome',

@@ -1,19 +1,17 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
+
 // test one
 
 test('test-front-page-one', async ({ page }) => {
 
   page.setDefaultTimeout(60000);
 
-  await page.goto('https://v2.marketlend.com.au/');
+  await page.goto('http://localhost:3000/');
 
   await page.screenshot({path: 'screen/screnshot-front-page.jpg' });
-  await page.locator('.custom-button-header-one').click();
-  await page.locator('#wpforms-242-field_1').fill('vitaliynosov2014@gmail.com');
-  const locator = page.locator('.custom-button-header-one');
-  await locator.screenshot({ path: 'screen/image.png' });
+  await page.locator('.start-btn').click();
   
 });
 
@@ -54,6 +52,67 @@ test('test-contact-page', async ({ page }) => {
   await page.getByPlaceholder('Your Message').fill('Test text');
   await page.getByRole('button', { name: 'Request Callback' }).click();
 });
+
+
+// test 4
+
+test.beforeEach(async ({ page }) => {
+  await test.step('navigate', async () => {
+    await page.goto('http://localhost:3000/');
+  });
+});
+
+test('should take screenshot', async ({ page }) => {
+
+  // programmatically remove the button for this example
+  // await page.getByText('Start your Application').evaluate((el) => el.remove());
+
+  const element = page.getByText('Start your Application');
+
+  await element.evaluate(element => element.textContent = 'New text Test');
+
+  await expect(page).toHaveScreenshot();
+});
+
+// test 5
+
+test('test-form-step-one', async ({ page }) => {
+
+  page.setDefaultTimeout(60000);
+
+  await page.goto('http://localhost:3000/');
+
+  await page.getByRole('button', { name: 'Start your Application' }).click();
+  await page.getByPlaceholder('First Name').fill('Name Text');
+  await page.getByPlaceholder('Last Name').fill('Last Name Text');
+  await page.getByPlaceholder('Business Name').fill('Busines Name Text');
+  await page.getByPlaceholder('Email').fill('emailtext@gmail.com');
+  await page.locator('#mobileNumber').fill('5474569843');
+  await page.locator('#agree').check();
+  await page.getByRole('button', { name: 'Next' }).click();
+
+});
+
+// test 6
+
+test('test-form-step-two', async ({ page }) => {
+
+  page.setDefaultTimeout(80000);
+
+  await page.goto('http://localhost:3000/');
+
+  await page.locator('#code').fill('4562325465');
+  
+  await page.getByRole('button', { name: /Confirm/i}).click();
+
+});
+
+
+
+
+
+
+
 
 
 // test consol comand: npx playwright test
