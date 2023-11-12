@@ -29,7 +29,7 @@ module.exports = defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    baseURL: "https://v2.marketlend.com.au/",
+    baseURL: "http://localhost:3000/",
         headless: true,
         screenshot: "on",
         video: "on",
@@ -45,7 +45,7 @@ module.exports = defineConfig({
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        viewport: { width: 1540, height: 1080 },
+        viewport: { width: 1540, height: 730 },
       },
     },
     // {
