@@ -1,7 +1,49 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
-// local:
+
+
+// test site https://v2.marketlend.com.au/
+
+test('test-front-page-navigation', async ({ page }) => {
+
+  page.setDefaultTimeout(60000);
+
+  await page.goto('https://v2.marketlend.com.au/');
+
+  const locatorTwo = page.locator('.button-front-page-custom-one');
+  await locatorTwo.screenshot({ path: 'screen/image-button.png' });
+  await page.getByRole('link', { name: 'Investor' }).click();
+  await page.getByRole('link', { name: 'Borrower' }).click();
+  await page.getByLabel('Primary').getByRole('link', { name: 'Contact Us' }).click();
+  await page.getByRole('link', { name: 'Blog' }).click();
+  await page.getByRole('link', { name: 'About Us' }).click();
+  await page.getByRole('link', { name: 'Partner' }).click();
+  await page.getByLabel('Primary').getByRole('link', { name: 'Privacy' }).click();
+
+});
+
+test('test-contact-page', async ({ page }) => {
+
+  page.setDefaultTimeout(60000);
+
+  await page.goto('https://v2.marketlend.com.au/contact-us/');
+
+  await page.screenshot({path: 'screen/screnshot-contact-page.jpg' });
+  await page.getByRole('link', { name: '+610280066798' }).click();
+  await page.getByRole('link', { name: 'Call Us Now' }).click();
+  await page.getByPlaceholder('First Name').fill('Vitaliy');
+  await page.getByPlaceholder('Last Name').fill('Nosov');
+  await page.locator('#form div').filter({ hasText: 'I’m interested in investing' }).nth(4).click();
+  await page.getByPlaceholder('Your Email Address').fill('vitaliynosov2014@gmail.com');
+  await page.getByPlaceholder('Subject').fill('Test works');
+  await page.getByPlaceholder('Your Message').fill('Test text');
+  await page.getByRole('button', { name: 'Request Callback' }).click();
+});
+
+
+
+// test form local:
 
 // test 1
 
@@ -79,44 +121,6 @@ test('test-form-step-two', async ({ page }) => {
   
   await page.getByRole('button', { name: /Confirm/i}).click();
 
-});
-
-// test 2
-
-test('test-front-page-navigation', async ({ page }) => {
-
-  page.setDefaultTimeout(60000);
-
-  await page.goto('https://v2.marketlend.com.au/');
-
-  const locatorTwo = page.locator('.button-front-page-custom-one');
-  await locatorTwo.screenshot({ path: 'screen/image-button.png' });
-  await page.getByRole('link', { name: 'Investor' }).click();
-  await page.getByRole('link', { name: 'Borrower' }).click();
-  await page.getByLabel('Primary').getByRole('link', { name: 'Contact Us' }).click();
-  await page.getByRole('link', { name: 'Blog' }).click();
-  await page.getByRole('link', { name: 'About Us' }).click();
-  await page.getByRole('link', { name: 'Partner' }).click();
-  await page.getByLabel('Primary').getByRole('link', { name: 'Privacy' }).click();
-
-});
-
-test('test-contact-page', async ({ page }) => {
-
-  page.setDefaultTimeout(60000);
-
-  await page.goto('https://v2.marketlend.com.au/contact-us/');
-
-  await page.screenshot({path: 'screen/screnshot-contact-page.jpg' });
-  await page.getByRole('link', { name: '+610280066798' }).click();
-  await page.getByRole('link', { name: 'Call Us Now' }).click();
-  await page.getByPlaceholder('First Name').fill('Vitaliy');
-  await page.getByPlaceholder('Last Name').fill('Nosov');
-  await page.locator('#form div').filter({ hasText: 'I’m interested in investing' }).nth(4).click();
-  await page.getByPlaceholder('Your Email Address').fill('vitaliynosov2014@gmail.com');
-  await page.getByPlaceholder('Subject').fill('Test works');
-  await page.getByPlaceholder('Your Message').fill('Test text');
-  await page.getByRole('button', { name: 'Request Callback' }).click();
 });
 
 
